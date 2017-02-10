@@ -1,30 +1,112 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CSS/HTML Workshop with Drivy</title>
+    <title>Drivy</title>
+	<meta charset="UTF-8">
+<style>
+fieldset
+{
+  background-color:#CCC;
+  max-width:500px;
+  padding:16px;	
+    margin-left: auto;
+  margin-right: auto;
+  width:200;
+}
+.actor {text-align: center;}
+
+.myButton {
+	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	-webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
+	background:-moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-o-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
+	background-color:#768d87;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:11px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
+	background:-moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
+	background-color:#6c7c7c;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+body
+{
+    background-image: url("http://eskipaper.com/images/garage-wallpaper-4.jpg");
+}
+
+
+
+
+</style>
   </head>
   <body>
+  <fieldset>
+      <img src="https://drivy-prod-static.s3.amazonaws.com/logo/logo-drivy.png"  style="width:204px;height:60px;">
+  <h2> Welcome to Drivy !</h2>
+ 
+  <p> <b> Please choose your vintage car </b></p>
+  <h3>Car </h3>
     <div id="car">
-      <input class="model" type="text" placeholder="Car model"/>
+     <input class="model" type="text" placeholder="Car model"/>
       <input class="price-by-day" type="number" placeholder="Price by day"/>
-      <input class="price-by-km" type="number" placeholder="Price by km"/>
+      <input class="price-by-km" type="number" placeholder="Price by km"/> 
     </div>
+	<h3> Rental</h3>
     <div id="rental">
       <input class="begin" type="date" placeholder="Rental begin date"/>
       <input class="end" type="date" placeholder="Rental end date"/>
       <input class="distance" type="number" placeholder="Distance in km"/>
       <input class="option" type="checkbox" placeholder="Deductible option"/>
     </div>
-    <button id="compute">Compute</button>
-    <div id="actors"></div>
+    <button id="compute" class="myButton">Compute</button>
+	</fieldset>
+    <div id="actors">
     <script id="template" type="x-tmpl-mustache">
       {{#actors}}
-        <div class="actor">
-          <span>{{who}}</span>
-          <span>{{type}}</span>
-          <span>{{amount}}</span>
+        <div class="actor" >
+		<fieldset>
+		<legend><h2  style="color:black;"> {{amount}}</h2></legend>
+          <span><font style="font-size: 20pt;text-align:left;">Perday:{{who}} $</font></span>
+		  <br>
+          <span><font style="font-size: 20pt;text-align:right;">Perkm:{{type}} $</font></span>
+		  <br>
+		<a href="#" class="myButton" style="vertical-align:middle">Let's Ride !</a>
+		<br><br>
+		  <img src="{{url}}"  style="width:304px;height:228px;">
+		  
+		</fieldset>
         </div>
       {{/actors}}
+	  </div>
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
     <script src="drivy.js"></script>

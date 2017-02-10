@@ -109,26 +109,20 @@ DRIVY = (function namespace () {
     var commission = rantalCommission(price, days);
     var deductibleOption = option ? 4 * days : 0;
 
+	
+
+	
+	
     var actors = [{
-      'who': 'driver',
-      'type': 'debit',
-      'amount': price + deductibleOption
+      'who': '20',
+      'type': '0.15',
+      'amount': 'Ford Mustang',
+	 'url':'http://www.desktopimages.org/pictures/2014/0313/1/ford-mustang-shelby-gt500-eleanor-wallpaper-4373.jpg' 
     }, {
-      'who': 'owner',
-      'type': 'credit',
-      'amount': price - commission.value
-    }, {
-      'who': 'insurance',
-      'type': 'credit',
-      'amount': commission.insurance
-    }, {
-      'who': 'assistance',
-      'type': 'credit',
-      'amount': commission.assistance
-    }, {
-      'who': 'drivy',
-      'type': 'credit',
-      'amount': commission.drivy + deductibleOption
+      'who': '20',
+      'type': '0.15',
+      'amount': 'Toyota Celica',
+	  'url':'https://static.carthrottle.com/workspace/uploads/posts/2015/05/japanese-muscle-5555ad99b7748.jpg'
     }];
 
     return actors;
